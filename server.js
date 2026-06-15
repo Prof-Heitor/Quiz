@@ -23,7 +23,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // Caminho do arquivo JSON legado para migração inicial
 const QUIZZES_FILE = path.join(__dirname, 'quizzes.json');
