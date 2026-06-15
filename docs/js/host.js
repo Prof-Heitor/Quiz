@@ -1,7 +1,7 @@
 // Configuração do servidor
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? ''
-  : '74.220.48.0/24'; // TODO: Substitua pela URL do seu backend no Render
+  : 'https://quiz-a966.onrender.com'; // TODO: Substitua pela URL do seu backend no Render
 
 let socket;
 let roomPin = null;
