@@ -1,0 +1,276 @@
+[
+  {
+    "id": "conhecimentos-gerais",
+    "title": "Conhecimentos Gerais",
+    "description": "Um quiz divertido sobre ciências, geografia, história e cultura geral para testar sua mente!",
+    "questions": [
+      {
+        "question": "Qual é o maior planeta do nosso sistema solar?",
+        "options": [
+          "Terra",
+          "Marte",
+          "Júpiter",
+          "Saturno"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual país é o lar do canguru?",
+        "options": [
+          "África do Sul",
+          "Austrália",
+          "Canadá",
+          "Nova Zelândia"
+        ],
+        "correct": 1,
+        "timeLimit": 15
+      },
+      {
+        "question": "Quem pintou a Mona Lisa?",
+        "options": [
+          "Vincent van Gogh",
+          "Leonardo da Vinci",
+          "Pablo Picasso",
+          "Michelangelo"
+        ],
+        "correct": 1,
+        "timeLimit": 20
+      },
+      {
+        "question": "De quem é a famosa frase: 'Penso, logo existo'?",
+        "options": [
+          "Platão",
+          "Galileu Galilei",
+          "Descartes",
+          "Sócrates"
+        ],
+        "correct": 2,
+        "timeLimit": 20
+      },
+      {
+        "question": "Qual o livro mais vendido no mundo a seguir à Bíblia?",
+        "options": [
+          "O Senhor dos Anéis",
+          "Dom Quixote",
+          "O Pequeno Príncipe",
+          "Harry Potter"
+        ],
+        "correct": 1,
+        "timeLimit": 20
+      }
+    ]
+  },
+  {
+    "id": "tecnologia-programacao",
+    "title": "Tecnologia e Programação",
+    "description": "Desafie seus conhecimentos sobre computadores, internet e desenvolvimento de software!",
+    "questions": [
+      {
+        "question": "O que significa a sigla HTML?",
+        "options": [
+          "Hyper Text Markup Language",
+          "High Tech Modern Language",
+          "Hyper Transfer Markup Language",
+          "Home Tool Markup Language"
+        ],
+        "correct": 0,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual destas linguagens é primariamente usada para estilizar páginas web?",
+        "options": [
+          "JavaScript",
+          "Python",
+          "CSS",
+          "PHP"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "Quem é considerado o fundador da Microsoft?",
+        "options": [
+          "Steve Jobs",
+          "Bill Gates",
+          "Mark Zuckerberg",
+          "Jeff Bezos"
+        ],
+        "correct": 1,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual símbolo é usado para comentários de linha única em JavaScript?",
+        "options": [
+          "/*",
+          "#",
+          "//",
+          "<!--"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "Em que ano o primeiro iPhone foi lançado?",
+        "options": [
+          "2005",
+          "2007",
+          "2008",
+          "2010"
+        ],
+        "correct": 1,
+        "timeLimit": 20
+      }
+    ]
+  },
+  {
+    "id": "engenharia-software-banco-dados",
+    "title": "Engenharia de Software e Banco de Dados",
+    "description": "Teste seus conhecimentos em SQL avançado, modelagem de dados, estratégias Git, CI/CD, APIs e ecossistema React/Redux!",
+    "questions": [
+      {
+        "question": "Qual comando SQL pertence à categoria DDL (Data Definition Language)?",
+        "options": [
+          "SELECT",
+          "UPDATE",
+          "ALTER",
+          "INSERT"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual tipo de JOIN retorna todas as linhas da tabela esquerda e as correspondências da tabela direita?",
+        "options": [
+          "INNER JOIN",
+          "LEFT JOIN",
+          "RIGHT JOIN",
+          "FULL OUTER JOIN"
+        ],
+        "correct": 1,
+        "timeLimit": 15
+      },
+      {
+        "question": "O que é uma subconsulta correlacionada (correlated subquery) em SQL?",
+        "options": [
+          "Uma subconsulta executada de forma independente antes da consulta externa",
+          "Uma subconsulta que depende de valores da consulta externa para ser executada",
+          "Uma consulta que une duas tabelas sem usar JOIN",
+          "Uma consulta recursiva que gera dados temporários"
+        ],
+        "correct": 1,
+        "timeLimit": 20
+      },
+      {
+        "question": "Para uma tabela estar na Terceira Forma Normal (3NF), além de estar na 2NF, qual condição deve ser atendida?",
+        "options": [
+          "Não possuir valores multivalorados ou repetidos",
+          "Toda chave estrangeira deve apontar para uma chave primária",
+          "Não possuir dependências funcionais transitivas em colunas não-chave",
+          "Todas as colunas não-chave devem depender totalmente da chave primária"
+        ],
+        "correct": 2,
+        "timeLimit": 20
+      },
+      {
+        "question": "Qual formato é mais comumente usado para exportar/importar conjuntos estruturados simples de tabelas de forma textual e universal?",
+        "options": [
+          "JSON",
+          "XML",
+          "CSV",
+          "YAML"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual é o principal objetivo da Entrega Contínua (Continuous Delivery - CD)?",
+        "options": [
+          "Garantir que o código sempre compile na máquina do desenvolvedor",
+          "Automatizar o deploy automático em ambiente de produção sem qualquer aprovação humana",
+          "Manter a base de código sempre em estado pronto para deploy em produção a qualquer momento",
+          "Substituir testes manuais por testes unitários locais"
+        ],
+        "correct": 2,
+        "timeLimit": 20
+      },
+      {
+        "question": "No padrão SemVer (Ex: 2.1.4), quando ocorre uma mudança de correção de bug que não quebra compatibilidade, qual dígito deve ser incrementado?",
+        "options": [
+          "Major (o primeiro)",
+          "Minor (o segundo)",
+          "Patch (o terceiro)",
+          "Build (um sufixo)"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual é a principal característica da estratégia Trunk-Based Development no Git?",
+        "options": [
+          "Uso de ramificações de longa duração, como 'develop' e 'release'",
+          "Desenvolvedores integram suas alterações frequentemente na branch principal ('trunk')",
+          "Cada desenvolvedor trabalha em sua própria ramificação sem nunca fazer merge",
+          "Bloqueio total de merges diretos na ramificação principal por qualquer usuário"
+        ],
+        "correct": 1,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual Git Hook é comumente usado para executar linters e testes rápidos localmente antes do commit ser criado?",
+        "options": [
+          "pre-commit",
+          "pre-receive",
+          "post-receive",
+          "commit-msg"
+        ],
+        "correct": 0,
+        "timeLimit": 15
+      },
+      {
+        "question": "Qual é uma vantagem típica da arquitetura de Microsserviços em comparação com uma Monolítica?",
+        "options": [
+          "Menor complexidade de rede e facilidade de depuração",
+          "Escalabilidade independente de partes específicas do sistema",
+          "Transações distribuídas nativas mais rápidas",
+          "Consistência de dados imediata em todo o sistema"
+        ],
+        "correct": 1,
+        "timeLimit": 20
+      },
+      {
+        "question": "Qual é o principal benefício do GraphQL em relação a APIs RESTful tradicionais?",
+        "options": [
+          "Permitir requisições apenas por métodos POST, garantindo criptografia nativa",
+          "Evitar problemas de over-fetching e under-fetching permitindo ao cliente solicitar campos específicos",
+          "Ser mais simples de implementar e dispensar qualquer tipo de servidor de aplicação",
+          "Garantir cache HTTP nativo automático em todos os navegadores padrão"
+        ],
+        "correct": 1,
+        "timeLimit": 20
+      },
+      {
+        "question": "Em React, qual hook é usado para gerenciar efeitos colaterais como chamadas de API e inscrições?",
+        "options": [
+          "useState",
+          "useContext",
+          "useEffect",
+          "useReducer"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      },
+      {
+        "question": "No Redux, qual elemento é uma função pura encarregada de receber o estado anterior e uma ação para calcular o novo estado?",
+        "options": [
+          "Store",
+          "Action",
+          "Reducer",
+          "Dispatcher"
+        ],
+        "correct": 2,
+        "timeLimit": 15
+      }
+    ]
+  }
+]

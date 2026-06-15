@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Host de Partida - SuperQuiz</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilos extras específicos para o Host */
+    .host-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      ⚡ Super<span>Quiz</span>
+    </a>
+    <div class="nav-links">
+      <button id="quit-btn" class="btn btn-outline">Encerrar Sala</button>
+    </div>
+  </header>
+
+  <main class="host-container">
+    
+    <!-- 1. TELA DE SELEÇÃO DE QUIZ (se acessado sem quizId) -->
+    <section id="select-quiz-section" class="glass-card text-center mb-4">
+      <h2 style="font-family: var(--font-title); margin-bottom: 1.5rem;">Escolha um Quiz para Apresentar</h2>
+      <div id="host-quiz-list" class="quizzes-grid">
+        <!-- Lista de quizzes carregada dinamicamente se o host acessar a URL direta -->
+      </div>
+    </section>
+
+    <!-- 2. TELA DE LOBBY (AGUARDANDO ALUNOS) -->
+    <section id="lobby-section" class="host-lobby hidden">
+      <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem;" id="lobby-title">Lobby de Partida</h1>
+      
+      <div class="pin-display">
+        <h2>Código PIN da Sala</h2>
+        <div id="pin-code" class="pin-code">------</div>
+      </div>
+
+      <div class="glass-card players-lobby-card">
+        <div id="players-count" class="players-count">Aguardando jogadores... (0)</div>
+        <div id="players-list" class="players-grid">
+          <!-- Jogadores inseridos em bolhas dinamicamente -->
+        </div>
+      </div>
+
+      <button id="start-game-btn" class="btn btn-primary btn-lg" style="padding: 1rem 3rem; font-size: 1.2rem;">🚀 Iniciar Partida!</button>
+    </section>
+
+    <!-- 3. TELA DE PERGUNTA ATIVA -->
+    <section id="question-section" class="glass-card hidden">
+      <div class="host-game-header">
+        <div>
+          <span id="host-question-index" style="color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Pergunta 1 de 5</span>
+          <h2 id="host-question-text" class="question-text" style="text-align: left; margin: 0.5rem 0 0 0; font-size: 2.2rem;">Enunciado da pergunta vai aqui</h2>
+        </div>
+        
+        <!-- Cronômetro e Contador de Respostas -->
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <div id="answers-counter" class="answers-counter">
+            <div id="answers-count" class="answers-counter-num">0</div>
+            <div class="answers-counter-label">Respostas</div>
+          </div>
+          <div id="timer-circle" class="timer-circle">20</div>
+        </div>
+      </div>
+
+      <div id="host-options-grid" class="options-grid" style="margin-top: 2rem;">
+        <!-- Alternativas mostradas para os alunos verem na tela grande -->
+      </div>
+    </section>
+
+    <!-- 4. TELA DE RESULTADO DA RODADA -->
+    <section id="results-section" class="glass-card hidden">
+      <h2 id="results-question-text" class="question-text" style="font-size: 1.8rem; margin-bottom: 2rem;">Pergunta respondida!</h2>
+      
+      <div class="host-results-container">
+        <!-- Esquerda: Gráfico de Barras -->
+        <div>
+          <h3 style="font-family: var(--font-title); margin-bottom: 1rem; color: var(--text-secondary);">Respostas Recebidas</h3>
+          <div class="stats-chart">
+            <div class="chart-bar-wrapper">
+              <div id="bar-red" class="chart-bar bar-red" style="height: 0%">
+                <span class="chart-bar-value" id="val-red">0</span>
+              </div>
+              <div class="chart-label" style="background: var(--option-red);">▲</div>
+            </div>
+            
+            <div class="chart-bar-wrapper">
+              <div id="bar-blue" class="chart-bar bar-blue" style="height: 0%">
+                <span class="chart-bar-value" id="val-blue">0</span>
+              </div>
+              <div class="chart-label" style="background: var(--option-blue);">◆</div>
+            </div>
+
+            <div class="chart-bar-wrapper">
+              <div id="bar-yellow" class="chart-bar bar-yellow" style="height: 0%">
+                <span class="chart-bar-value" id="val-yellow">0</span>
+              </div>
+              <div class="chart-label" style="background: var(--option-yellow);">●</div>
+            </div>
+
+            <div class="chart-bar-wrapper">
+              <div id="bar-green" class="chart-bar bar-green" style="height: 0%">
+                <span class="chart-bar-value" id="val-green">0</span>
+              </div>
+              <div class="chart-label" style="background: var(--option-green);">■</div>
+            </div>
+          </div>
+          <div id="correct-answer-announcement" style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 600;">
+            Resposta Correta: <span id="correct-answer-text" style="color: var(--color-success);">Texto</span>
+          </div>
+        </div>
+
+        <!-- Direita: Leaderboard Parcial -->
+        <div>
+          <h3 style="font-family: var(--font-title); margin-bottom: 1rem; color: var(--color-secondary);">Classificação Parcial</h3>
+          <div id="partial-leaderboard-list" class="partial-leaderboard">
+            <!-- Top 5 jogadores inseridos via JS -->
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+        <button id="next-step-btn" class="btn btn-primary btn-lg">Avançar Pergunta ➡️</button>
+      </div>
+    </section>
+
+    <!-- 5. TELA DE PODIUM FINAL -->
+    <section id="podium-section" class="glass-card text-center hidden">
+      <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">🏆 Fim do Jogo!</h1>
+      <p style="color: var(--text-secondary); font-size: 1.2rem;">Parabéns aos vencedores da rodada!</p>
+      
+      <!-- Pódio 3D -->
+      <div id="podium-container" class="podium-container">
+        <!-- Preenchido via JS (Ordem 2º, 1º, 3º lugar) -->
+      </div>
+
+      <div class="mt-4">
+        <a href="index.html" class="btn btn-primary btn-lg">Voltar ao Menu Principal</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="confetti-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; overflow: hidden;"></div>
+
+  <footer>
+    <p>&copy; 2026 SuperQuiz. Desenvolvido para engajamento escolar.</p>
+  </footer>
+
+  <!-- Carrega a biblioteca de sockets provida automaticamente pelo servidor -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/host.js"></script>
+</body>
+</html>

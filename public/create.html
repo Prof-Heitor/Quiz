@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Quiz - SuperQuiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      ⚡ Super<span>Quiz</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="btn btn-outline">Voltar ao Portal</a>
+    </nav>
+  </header>
+
+  <main class="creator-container">
+    <h1 class="section-title" style="font-size: 2.2rem; margin-bottom: 2rem;">✏️ Criador de Quiz</h1>
+
+    <form id="quiz-creator-form" class="glass-card" style="margin-bottom: 2rem;">
+      <h2 style="font-family: var(--font-title); margin-bottom: 1.5rem; color: var(--color-primary);">1. Detalhes do Quiz</h2>
+      
+      <div class="input-group">
+        <label for="quiz-title">Título do Quiz</label>
+        <input type="text" id="quiz-title" placeholder="Ex: Capitais do Mundo, Matemática Divertida..." required maxlength="50">
+      </div>
+
+      <div class="input-group">
+        <label for="quiz-description">Descrição</label>
+        <textarea id="quiz-description" placeholder="Escreva uma breve descrição para os alunos sobre o tema do quiz..." rows="3" maxlength="200"></textarea>
+      </div>
+
+      <h2 style="font-family: var(--font-title); margin: 2rem 0 1.5rem 0; color: var(--color-secondary);">2. Perguntas e Respostas</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+        Escreva a pergunta, digite as 4 alternativas e clique no círculo verde ao lado da opção que é a **correta**.
+      </p>
+
+      <!-- Container onde as perguntas serão adicionadas -->
+      <div id="questions-container">
+        <!-- Primeira pergunta já instanciada para guiar o usuário -->
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+        <button type="button" id="add-question-btn" class="btn btn-outline">➕ Adicionar Pergunta</button>
+        <button type="submit" class="btn btn-primary">💾 Salvar e Publicar Quiz</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SuperQuiz. Desenvolvido para engajamento escolar.</p>
+  </footer>
+
+  <script src="js/create.js"></script>
+</body>
+</html>

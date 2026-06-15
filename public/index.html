@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperQuiz - Plataforma de Quiz e Partidas Online</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header / Barra de Navegação -->
+  <header>
+    <a href="index.html" class="logo">
+      ⚡ Super<span>Quiz</span>
+    </a>
+    <nav class="nav-links">
+      <a href="create.html" class="btn btn-outline">Criar Quiz</a>
+      <a href="host.html" class="btn btn-primary">Apresentar Partida</a>
+      <a href="player.html" class="btn btn-secondary">Entrar no Jogo</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+    <!-- Hero Section / Boas Vindas -->
+    <section class="hero-section glass-card">
+      <h1 class="hero-title">Aprenda Jogando com o <span>SuperQuiz</span></h1>
+      <p class="hero-subtitle">Responda aos quizzes individuais para pontuar no ranking global ou crie uma partida online em tempo real para disputar com seus amigos no estilo Kahoot!</p>
+      
+      <div class="quick-actions">
+        <a href="player.html" class="btn btn-secondary btn-lg">🎮 Entrar com PIN do Jogo</a>
+        <a href="host.html" class="btn btn-primary btn-lg">🏫 Iniciar Sala Multiplayer</a>
+        <a href="create.html" class="btn btn-outline btn-lg">➕ Criar Novo Quiz</a>
+      </div>
+    </section>
+
+    <!-- Grid Layout: Quizzes (Ranking temporariamente ocultado) -->
+    <div class="grid-layout" style="grid-template-columns: 1fr;">
+      <!-- Seção de Quizzes -->
+      <section>
+        <h2 class="section-title">📚 Quizzes Disponíveis</h2>
+        <div id="quizzes-container" class="quizzes-grid">
+          <!-- Inserido dinamicamente via JS -->
+          <div class="glass-card text-center" style="grid-column: 1/-1; padding: 3rem;">
+            <p>Carregando quizzes...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção do Ranking (Temporariamente Oculta) -->
+      <section class="hidden">
+        <h2 class="section-title">🏆 Ranking Individual</h2>
+        <div class="glass-card">
+          <!-- Filtros de Ranking por Quiz -->
+          <div id="ranking-tabs" class="ranking-tabs">
+            <button class="ranking-tab active" data-filter="all">Todos</button>
+            <!-- Outras abas serão inseridas via JS -->
+          </div>
+          <div id="ranking-list" class="ranking-list">
+            <!-- Inserido dinamicamente via JS -->
+            <p class="text-center" style="color: var(--text-secondary); padding: 1.5rem;">Nenhuma pontuação registrada ainda.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Modal de Jogo Individual -->
+  <div id="quiz-modal" class="modal-overlay">
+    <div class="modal-content glass-card">
+      <!-- Tela de Entrada do Nome -->
+      <div id="quiz-intro-screen">
+        <h2 id="modal-quiz-title" class="text-center" style="font-family: var(--font-title); margin-bottom: 1rem;">Título do Quiz</h2>
+        <p id="modal-quiz-desc" class="text-center" style="color: var(--text-secondary); margin-bottom: 2rem;">Descrição</p>
+        
+        <div class="input-group">
+          <label for="player-name">Qual é o seu nome?</label>
+          <input type="text" id="player-name" placeholder="Digite seu nome ou apelido..." maxlength="20">
+        </div>
+        
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+          <button id="close-modal-btn" class="btn btn-outline">Cancelar</button>
+          <button id="start-quiz-btn" class="btn btn-primary">Iniciar Quiz</button>
+        </div>
+      </div>
+
+      <!-- Tela de Perguntas -->
+      <div id="quiz-game-screen" class="hidden">
+        <div class="game-header">
+          <span id="question-counter" style="font-weight: 600;">Pergunta 1 de 5</span>
+          <div class="game-progress-bar">
+            <div id="game-progress-fill" class="game-progress-fill"></div>
+          </div>
+          <span id="current-score" style="color: var(--color-secondary); font-weight: 700;">0 pts</span>
+        </div>
+        
+        <h3 id="game-question-text" class="question-text">Texto da Pergunta</h3>
+        
+        <div id="game-options-grid" class="options-grid">
+          <!-- Botões de opções inseridos dinamicamente -->
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+          <button id="next-question-btn" class="btn btn-primary hidden">Próxima Pergunta</button>
+        </div>
+      </div>
+
+      <!-- Tela de Resultado Final -->
+      <div id="quiz-result-screen" class="hidden">
+        <h2 class="text-center" style="font-family: var(--font-title); margin-bottom: 1.5rem;">🎉 Quiz Concluído!</h2>
+        
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <p style="font-size: 1.2rem; color: var(--text-secondary);">Parabéns, <span id="summary-player-name" style="color: white; font-weight: bold;">Nome</span>!</p>
+          <p style="font-size: 2.5rem; font-family: var(--font-title); font-weight: 800; color: var(--color-secondary); margin: 1rem 0;" id="summary-score">0 Pontos</p>
+          <p style="font-size: 1.1rem;" id="summary-corrects">Você acertou 0 de 5 perguntas.</p>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <button id="finish-quiz-btn" class="btn btn-primary">Voltar ao Portal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SuperQuiz. Desenvolvido para engajamento escolar.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

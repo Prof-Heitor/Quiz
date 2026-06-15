@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participar do Jogo - SuperQuiz</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilos extras de layout de jogador */
+    .player-container {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100vh - 180px);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      ⚡ Super<span>Quiz</span>
+    </a>
+  </header>
+
+  <main class="player-container">
+    
+    <!-- 1. TELA DE LOGIN / ENTRAR COM PIN E NOME -->
+    <section id="login-section" class="glass-card player-join-card">
+      <h2 class="text-center" style="font-family: var(--font-title); margin-bottom: 1.5rem; font-size: 1.8rem; color: var(--color-primary);">Entrar na Partida</h2>
+      
+      <div class="input-group">
+        <label for="pin-input">PIN do Jogo (6 dígitos)</label>
+        <input type="text" id="pin-input" placeholder="Ex: 123456" pattern="[0-9]*" inputmode="numeric" maxlength="6" style="text-align: center; font-size: 1.5rem; font-weight: bold; letter-spacing: 0.1em;">
+      </div>
+
+      <div class="input-group">
+        <label for="name-input">Seu Nome / Apelido</label>
+        <input type="text" id="name-input" placeholder="Como quer ser chamado..." maxlength="15">
+      </div>
+
+      <button id="join-btn" class="btn btn-secondary btn-lg" style="width: 100%; margin-top: 1rem; font-size: 1.1rem; padding: 0.9rem;">Entrar no Lobby</button>
+    </section>
+
+    <!-- 2. TELA DE LOBBY (AGUARDANDO INÍCIO) -->
+    <section id="lobby-waiting-section" class="glass-card text-center player-status-waiting hidden">
+      <div class="loader-ripple">
+        <div></div>
+        <div></div>
+      </div>
+      <h2 style="font-family: var(--font-title);">Você está dentro!</h2>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 0.5rem;">
+        Olá, <span id="lobby-player-name" style="color: white; font-weight: bold;">Aluno</span>! Olhe para a tela do apresentador e confirme se seu nome aparece lá.
+      </p>
+      <p style="color: var(--color-primary); font-size: 0.9rem; margin-top: 2rem;">Aguardando o início do jogo pelo apresentador...</p>
+    </section>
+
+    <!-- 3. TELA DE RESPOSTA ATIVA -->
+    <section id="play-section" class="player-game-screen hidden">
+      <div class="game-header" style="margin-bottom: 1rem;">
+        <span id="player-question-counter" style="font-weight: 600;">Pergunta 1 de 5</span>
+        <span id="player-current-score" style="color: var(--color-secondary); font-weight: 700;">0 pts</span>
+      </div>
+
+      <!-- Para melhor acessibilidade/remote play, mostraremos o enunciado também na tela do aluno -->
+      <div class="glass-card" style="padding: 1.25rem; margin-bottom: 1.5rem; border-radius: 16px;">
+        <h3 id="player-question-text" style="font-size: 1.25rem; font-weight: 600; text-align: center; line-height: 1.4;">
+          Texto da Pergunta
+        </h3>
+      </div>
+
+      <!-- Botões Gigantes Estilo Kahoot (com Símbolos) -->
+      <div class="player-options-grid">
+        <button class="player-option-btn" data-index="0">▲</button>
+        <button class="player-option-btn" data-index="1">◆</button>
+        <button class="player-option-btn" data-index="2">●</button>
+        <button class="player-option-btn" data-index="3">■</button>
+      </div>
+    </section>
+
+    <!-- 4. TELA DE ESPERA APÓS ENVIAR RESPOSTA -->
+    <section id="waiting-others-section" class="glass-card text-center player-status-waiting hidden">
+      <div class="loader-ripple">
+        <div></div>
+        <div></div>
+      </div>
+      <h2 style="font-family: var(--font-title);">Resposta Enviada!</h2>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">Aguardando os outros jogadores terminarem ou o tempo acabar...</p>
+    </section>
+
+    <!-- 5. TELA DE FEEDBACK DA RODADA (ACERTOU / ERROU) -->
+    <section id="feedback-section" class="player-feedback-screen hidden">
+      <div id="feedback-card" style="padding: 2.5rem 1.5rem; border-radius: 20px;">
+        <div id="feedback-icon" class="feedback-icon">✔️</div>
+        <h2 id="feedback-title" style="font-family: var(--font-title); font-size: 2rem;">Correto!</h2>
+        <div id="feedback-points" class="feedback-points">+0 pts</div>
+        
+        <div id="incorrect-info" class="hidden" style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+          A resposta correta era: <span id="correct-text-feedback" style="color: white; font-weight: bold;">Opção</span>
+        </div>
+
+        <div style="margin-top: 2rem; font-size: 1.1rem; color: var(--text-secondary);">
+          Total Acumulado: <span id="feedback-total-score" style="color: white; font-weight: bold;">0 pts</span>
+        </div>
+      </div>
+      
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 2rem;">Aguarde o apresentador avançar...</p>
+    </section>
+
+    <!-- 6. TELA DE RESULTADOS FINAIS (FIM DE JOGO) -->
+    <section id="player-finished-section" class="glass-card text-center hidden">
+      <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 1rem;">🏁 Jogo Encerrado!</h1>
+      
+      <div style="margin: 2rem 0;">
+        <div id="player-placement-icon" style="font-size: 3.5rem; margin-bottom: 0.5rem;">🏆</div>
+        <h2 id="player-placement-text" style="font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 0.5rem;">Você ficou em 1º Lugar!</h2>
+        <p id="player-final-corrects" style="color: var(--text-secondary); font-size: 1.1rem;">Acertou 4 de 5 perguntas.</p>
+        <p id="player-final-score" style="font-size: 1.5rem; font-weight: 700; color: var(--color-secondary); margin-top: 1rem;">Pontuação Final: 3820 pts</p>
+      </div>
+
+      <div class="mt-4">
+        <a href="index.html" class="btn btn-primary btn-lg" style="width: 100%;">Voltar ao Portal</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SuperQuiz. Desenvolvido para engajamento escolar.</p>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/player.js"></script>
+</body>
+</html>
