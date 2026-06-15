@@ -137,7 +137,7 @@
           "INSERT"
         ],
         "correct": 2,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "Qual tipo de JOIN retorna todas as linhas da tabela esquerda e as correspondências da tabela direita?",
@@ -148,7 +148,7 @@
           "FULL OUTER JOIN"
         ],
         "correct": 1,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "O que é uma subconsulta correlacionada (correlated subquery) em SQL?",
@@ -159,7 +159,7 @@
           "Uma consulta recursiva que gera dados temporários"
         ],
         "correct": 1,
-        "timeLimit": 20
+        "timeLimit": 60
       },
       {
         "question": "Para uma tabela estar na Terceira Forma Normal (3NF), além de estar na 2NF, qual condição deve ser atendida?",
@@ -170,7 +170,7 @@
           "Todas as colunas não-chave devem depender totalmente da chave primária"
         ],
         "correct": 2,
-        "timeLimit": 20
+        "timeLimit": 60
       },
       {
         "question": "Qual formato é mais comumente usado para exportar/importar conjuntos estruturados simples de tabelas de forma textual e universal?",
@@ -181,7 +181,7 @@
           "YAML"
         ],
         "correct": 2,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "Qual é o principal objetivo da Entrega Contínua (Continuous Delivery - CD)?",
@@ -192,7 +192,7 @@
           "Substituir testes manuais por testes unitários locais"
         ],
         "correct": 2,
-        "timeLimit": 20
+        "timeLimit": 60
       },
       {
         "question": "No padrão SemVer (Ex: 2.1.4), quando ocorre uma mudança de correção de bug que não quebra compatibilidade, qual dígito deve ser incrementado?",
@@ -203,7 +203,7 @@
           "Build (um sufixo)"
         ],
         "correct": 2,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "Qual é a principal característica da estratégia Trunk-Based Development no Git?",
@@ -214,7 +214,7 @@
           "Bloqueio total de merges diretos na ramificação principal por qualquer usuário"
         ],
         "correct": 1,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "Qual Git Hook é comumente usado para executar linters e testes rápidos localmente antes do commit ser criado?",
@@ -225,7 +225,7 @@
           "commit-msg"
         ],
         "correct": 0,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "Qual é uma vantagem típica da arquitetura de Microsserviços em comparação com uma Monolítica?",
@@ -236,7 +236,7 @@
           "Consistência de dados imediata em todo o sistema"
         ],
         "correct": 1,
-        "timeLimit": 20
+        "timeLimit": 60
       },
       {
         "question": "Qual é o principal benefício do GraphQL em relação a APIs RESTful tradicionais?",
@@ -247,7 +247,7 @@
           "Garantir cache HTTP nativo automático em todos os navegadores padrão"
         ],
         "correct": 1,
-        "timeLimit": 20
+        "timeLimit": 60
       },
       {
         "question": "Em React, qual hook é usado para gerenciar efeitos colaterais como chamadas de API e inscrições?",
@@ -258,7 +258,7 @@
           "useReducer"
         ],
         "correct": 2,
-        "timeLimit": 15
+        "timeLimit": 60
       },
       {
         "question": "No Redux, qual elemento é uma função pura encarregada de receber o estado anterior e uma ação para calcular o novo estado?",
@@ -269,7 +269,7 @@
           "Dispatcher"
         ],
         "correct": 2,
-        "timeLimit": 15
+        "timeLimit": 60
       }
     ]
   }
